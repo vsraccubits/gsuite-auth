@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'authapi',
+    'users',
     'rest_framework',
     'rest_framework.authtoken',
     'dj_rest_auth',
@@ -134,6 +135,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+AUTH_USER_MODEL = 'users.User'
+
 SITE_ID = 1
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -147,3 +150,7 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+SOCIALACCOUNT_ADAPTER = 'authapi.api.adapter.UserAccountCustomAdapter'
+
+LOGIN_REDIRECT_URL = '/'
